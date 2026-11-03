@@ -1,0 +1,140 @@
+[
+  {
+    "name": "Premium Ultrabook",
+    "if": [
+      "budget_high",
+      "portable",
+      "long_battery"
+    ],
+    "then": "recommend:premium_ultrabook",
+    "priority": 5,
+    "cf": 0.95
+  },
+  {
+    "name": "Student light office",
+    "if": [
+      "budget_low",
+      "office_only",
+      "portable"
+    ],
+    "then": "recommend:budget_ultrabook",
+    "priority": 5,
+    "cf": 0.9
+  },
+  {
+    "name": "Gaming",
+    "if": [
+      "gaming",
+      "budget_medium"
+    ],
+    "then": "recommend:midrange_gaming_laptop",
+    "priority": 4,
+    "cf": 0.75
+  },
+  {
+    "name": "Pro gaming",
+    "if": [
+      "gaming",
+      "budget_high"
+    ],
+    "then": "recommend:high_end_gaming_laptop",
+    "priority": 5,
+    "cf": 0.9
+  },
+  {
+    "name": "Creative work (portable)",
+    "if": [
+      "creative_work",
+      "portable"
+    ],
+    "then": "spec:ram_16_plus",
+    "priority": 3,
+    "cf": 0.7
+  },
+  {
+    "name": "Creative work (display)",
+    "if": [
+      "creative_work",
+      "large_screen"
+    ],
+    "then": "spec:display_15_plus_color_accurate",
+    "priority": 3,
+    "cf": 0.9
+  },
+  {
+    "name": "Travel + battery",
+    "if": [
+      "travel_often",
+      "long_battery"
+    ],
+    "then": "spec:battery_60wh_plus",
+    "priority": 2,
+    "cf": 0.85
+  },
+  {
+    "name": "OS preference mapping",
+    "if": [
+      "pref_os_macos"
+    ],
+    "then": "spec:macos_required",
+    "priority": 2,
+    "cf": 1.0
+  },
+  {
+    "name": "AI acceleration",
+    "if": [
+      "needs_ai_accel"
+    ],
+    "then": "spec:gpu_with_tensor_cores",
+    "priority": 2,
+    "cf": 0.95
+  },
+  {
+    "name": "Linux suitability",
+    "if": [
+      "pref_os_linux",
+      "office_only"
+    ],
+    "then": "spec:linux_friendly_hw",
+    "priority": 2,
+    "cf": 0.6
+  },
+  {
+    "name": "Mac premium model",
+    "if": [
+      "recommend:premium_ultrabook",
+      "pref_os_macos"
+    ],
+    "then": "model:Apple_MacBook_Air_15",
+    "priority": 1,
+    "cf": 0.8
+  },
+  {
+    "name": "Linux premium model",
+    "if": [
+      "recommend:premium_ultrabook",
+      "pref_os_linux"
+    ],
+    "then": "model:Lenovo_ThinkPad_X1_Carbon",
+    "priority": 1,
+    "cf": 0.65
+  },
+  {
+    "name": "Midrange gaming model",
+    "if": [
+      "recommend:midrange_gaming_laptop"
+    ],
+    "then": "model:Lenovo_LOQ_15",
+    "priority": 1,
+    "cf": 0.6
+  },
+  {
+    "name": "High-end gaming model",
+    "if": [
+      "recommend:high_end_gaming_laptop"
+    ],
+    "then": "model:ASUS_ROG_Zephyrus_G16",
+    "priority": 1,
+    "cf": 0.6
+  }
+]

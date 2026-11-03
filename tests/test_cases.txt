@@ -1,0 +1,34 @@
+Test cases
+Format: Input facts -> Expected conclusions (confidence)
+
+1. Premium ultrabook (assignment example)
+   Input: ['budget_high', 'portable', 'long_battery', 'pref_os_windows']
+   -> Expected: recommend:premium_ultrabook (95%)
+
+2. Specs only, no recommendation
+   Input: ['budget_high', 'portable', 'creative_work', 'needs_ai_accel', 'travel_often', 'pref_os_linux']
+   -> Expected: spec:gpu_with_tensor_cores (95%), spec:ram_16_plus (70%)
+
+3. Low budget student
+   Input: ['budget_low', 'portable', 'office_only', 'pref_os_windows']
+   -> Expected: recommend:budget_ultrabook (90%)
+
+4. No rule match
+   Input: ['budget_low', 'pref_os_windows']
+   -> Expected: (no conclusions - no rule fires)
+
+5. Everything yes, macOS (9 rules fire)
+   Input: ['budget_high', 'portable', 'long_battery', 'gaming', 'creative_work', 'office_only',
+           'needs_ai_accel', 'large_screen', 'travel_often', 'pref_os_macos']
+   -> Expected: recommend:premium_ultrabook (95%), recommend:high_end_gaming_laptop (90%),
+                spec:battery_60wh_plus (85%), spec:display_15_plus_color_accurate (90%),
+                spec:gpu_with_tensor_cores (95%), spec:macos_required (100%), spec:ram_16_plus (70%),
+                model:Apple_MacBook_Air_15 (76%), model:ASUS_ROG_Zephyrus_G16 (54%)
+
+6. Midrange gamer (Lenovo LOQ 15)
+   Input: ['budget_medium', 'gaming', 'pref_os_windows']
+   -> Expected: recommend:midrange_gaming_laptop (75%), model:Lenovo_LOQ_15 (45%)
+
+7. High-end gamer (ASUS ROG Zephyrus G16)
+   Input: ['budget_high', 'gaming', 'pref_os_windows']
+   -> Expected: recommend:high_end_gaming_laptop (90%), model:ASUS_ROG_Zephyrus_G16 (54%)
