@@ -26,7 +26,7 @@ python tests/test.py
 5. It prints the recommendations, specs, models, and which rules fired.
 
 ## Rules
-- There's 14 rules. Some of the rules use results from other rules.
+- There are 14 rules. Four of them use results from other rules.
 
 ## Bonus: Why and How explanations
 - **Why:** type `why` at any question to see which rules use that answer.
